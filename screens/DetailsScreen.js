@@ -6,7 +6,18 @@ import {Stylesheet, Text, View, Image, TextInput, Pressable, FlatList} from 'rea
 
 const Stack = createNativeStackNavigator();
 
-const details = ({navigation, route}) =>{
+import ProductDetails from '../components/ProductDetails';
+
+const details = ({route}) => {
+    const {productId} = route.params;
+
+    return (
+        <View>
+          <ProductDetails productId={productId} />
+        </View>
+      );
+}
+/*const details = ({navigation, route}) =>{
 
     return (
         <View>
@@ -16,7 +27,7 @@ const details = ({navigation, route}) =>{
            </Text>
         </View>
     )
-}
+}*/
 /*const details = ({navigation, route}) =>{
 
     return (
