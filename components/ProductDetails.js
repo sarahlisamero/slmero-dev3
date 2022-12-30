@@ -27,13 +27,21 @@ import { View, Text, StyleSheet, TouchableNativeFeedback, Pressable, Image, Butt
 
 const ProductDetails = props => { /*ProductItem*/
   return (
-      <View>
-        <Text>{props.title}</Text>
-        <Image source={require('../assets/sport-shoe.png')}></Image>
-        <Text>{props.description}</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>{props.title}</Text>
         <Image source={{uri: `${props.image}`}}/> 
+        <Text>{props.description}</Text>
       </View>
   );
 }
 
 export default ProductDetails;
+const styles = StyleSheet.create ({
+  title:{
+    fontSize:24,
+    fontWeight: "bold",
+  },
+  container:{
+    margin: 20,
+  }
+})
