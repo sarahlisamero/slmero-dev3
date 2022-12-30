@@ -2,9 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native'; //nieuw
 
-import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet, TouchableNativeFeedback, Pressable, Image, Button } from 'react-native';
-import { initialWindowMetrics } from 'react-native-safe-area-context';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 
 const ProductItem = props => { /*ProductItem*/
@@ -12,7 +10,9 @@ const navigation = useNavigation(); //nieuw
   return (
       <View>
         <Text style={styles.title}>{props.title}</Text>
-        <Image source={require('../assets/sport-shoe.png')}></Image>
+        <Image style={styles.cover}
+        source={{ uri: `${props.image}` }}
+        />
       </View>
   );
 }
@@ -25,5 +25,10 @@ link:{
   textDecorationLine: "underline",
   marginVertical:15
 },
+cover:{
+  width:324,
+  height:300,
+  marginVertical:10
+}
 });
 export default ProductItem;
