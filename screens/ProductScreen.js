@@ -2,14 +2,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList,Button, ScrollView} from 'react-native';
 
 import ProductItem from '../components/ProductItem'; 
 
-
 const Stack = createNativeStackNavigator();
 
-const products = ({navigation}) =>{
+const Products = ({navigation}) =>{
 
     const [products, setProducts] = useState ([]); //variabele maken
 
@@ -20,7 +19,6 @@ const products = ({navigation}) =>{
             })
             const json = await response.json(); 
             setProducts(json); //gelukt
-            console.log(products);
         } catch (error) {
             console.error(error); //niet gelukt
         }
@@ -30,9 +28,14 @@ const products = ({navigation}) =>{
         getProducts(); //laadt de producten
     }, []);
 
+    const [pressCounter, setPressCounter] = useState(0);
+    function pressHandler() {
+    console.log("pressed ");
+    setPressCounter((currentPressCounter) => currentPressCounter +1)
+    }
 
     return (
-        <View style={styles.screen}>
+        <ScrollView style={styles.screen}>
 
             <TextInput
                 placeholder="Search product"
@@ -42,29 +45,27 @@ const products = ({navigation}) =>{
 
             <Pressable onPress={() => navigation.navigate("cart")}>
                 <Image style={styles.picture} source={require('../assets/shopping-cart.png')}></Image>
+                <Text style={styles.counter} >{pressCounter}</Text>
             </Pressable>
 
             <FlatList data={products} renderItem={({item}) => (
-                <ProductItem
-                title={item.title.rendered}
-                description={item.yoast_head_json.og_description.split()}
-                image={item.yoast_head_json.og_image[0].url}/>
-            )}/>
-            
-            <FlatList data={products} renderItem={({item}) => (
-                <View>
-                    <Text>{item.title.rendered}</Text>
-                    <Text>{item.yoast_head_json.og_description}</Text>
-                    <Pressable onPress ={()=> navigation.navigate ("info", {itemTitle: item.title.rendered})}>
-                        <Text>Bekijk productdetails</Text>
-                    </Pressable>
+                <View style={styles.productContainer}>
+                     <ProductItem
+                        title={item.title.rendered}
+                        description={item.yoast_head_json.og_description}
+                        image={item.yoast_head_json.og_image[0].url}/>
+
+                <Button title="Bekijk Product" onPress={() => navigation.navigate("details", 
+                {itemTitle: item.title.rendered,
+                itemDesc: item.yoast_head_json.og_description})}/>
+
+                <Button style={styles.button} title="add to cart" onPress={() => pressHandler()}/>
                 </View>
             )}/>
-        
-        </View>
+        </ScrollView>
     )
 }
-export default products;
+export default Products;
 
 const styles = StyleSheet.create({
     screen: {
@@ -73,7 +74,12 @@ const styles = StyleSheet.create({
     picture: {
         width:40,
         height:40,
-        marginLeft:"85%",
+        marginLeft:"82%",
+    },
+    productContainer:{
+        padding: 15,
+        backgroundColor:"#f7f7f7",
+        margin: 15,
     },
     input: {
         backgroundColor:"#f7f7f7",
@@ -82,5 +88,11 @@ const styles = StyleSheet.create({
         paddingLeft:10,
         paddingTop:10,
         paddingBottom:10,
+    },
+    button: {
+        marginVertical:10,
+    },
+    counter:{
+        marginLeft: "92%"
     }
 })
