@@ -6,7 +6,7 @@ import {Stylesheet, Text, View, Image, TextInput, Pressable, FlatList} from 'rea
 
 const Stack = createNativeStackNavigator();
 
-const cart = ({navigation, route}) =>{
+const Cart = ({navigation, route}) =>{
 
     return (
         <View>
@@ -18,4 +18,4 @@ const cart = ({navigation, route}) =>{
     )
 }
 
-export default cart;
+export default Cart;
