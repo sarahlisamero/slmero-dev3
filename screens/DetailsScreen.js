@@ -1,38 +1,26 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import React, {useState, useEffect} from 'react';
-import {Stylesheet, Text, View, Image, TextInput, Pressable, FlatList} from 'react-native';
+import {StyleSheet, View, Image, FlatList} from 'react-native';
 import ProductDetails from '../components/ProductDetails';
 
 const Stack = createNativeStackNavigator();
-/*const Details = ({navigation, route}) =>{
-
-    return (
-        <View>
-           <Text>
-            detaaails
-            
-           </Text>
-        </View>
-    )
-}
-export default Details;*/
 
 const Details = ({navigation, route}) =>{
 
     return (
-        <View>
+        <View style={styles.screen}>
             <ProductDetails
             title={route.params.itemTitle}
+            description={route.params.itemDesc}
+            image={route.params.itemImage}
             />
-           <Text>
-           {route.params.itemDesc} 
-           </Text>
         </View>
     )
 }
-console.log(Details)
 export default Details;
 
+const styles = StyleSheet.create({
+    screen:{
+        backgroundColor: "#ffdfb5"
+    }
+})
 
