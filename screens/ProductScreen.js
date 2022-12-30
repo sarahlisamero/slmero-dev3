@@ -42,7 +42,6 @@ const Products = ({navigation}) =>{
                 style={styles.input}/*
                 onChangeText={getProductsByTitleSearch}*///geeft argument enteredText mee, denk aan de taskInputHandler uit de todo app.
              />
-
             <Pressable onPress={() => navigation.navigate("cart")}>
                 <Image style={styles.picture} source={require('../assets/shopping-cart.png')}></Image>
                 <Text style={styles.counter} >{pressCounter}</Text>
@@ -54,10 +53,9 @@ const Products = ({navigation}) =>{
                         title={item.title.rendered}
                         description={item.yoast_head_json.og_description}
                         image={item.yoast_head_json.og_image[0].url}/>
-
-                <Button title="Bekijk Product" onPress={() => navigation.navigate("details", 
+                <Button title="Bekijk Product" onPress={() => navigation.navigate("Details", 
                 {itemTitle: item.title.rendered,
-                itemDesc: item.yoast_head_json.og_description})}/>
+                itemDesc: item.yoast_head_json.og_description, itemImage: item.yoast_head_json.og_image[0].url } )}/>
 
                 <Button style={styles.button} title="add to cart" onPress={() => pressHandler()}/>
                 </View>
