@@ -3,35 +3,27 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native'; //nieuw
 
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Pressable, Image, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableNativeFeedback, Pressable, Image, Button } from 'react-native';
+import { initialWindowMetrics } from 'react-native-safe-area-context';
 
 
 const ProductItem = props => { /*ProductItem*/
 const navigation = useNavigation(); //nieuw
   return (
-      <View style={styles.listItem}>
+      <View>
         <Text style={styles.title}>{props.title}</Text>
-        <Text>{props.description}</Text>
-        <Image source={{uri: props.image}}/*werkt niet*//> 
-        <Pressable onPress={() => navigation.navigate("details")}/*nieuw*/> 
-            <Text style={styles.link}>View {props.title}</Text>
-          </Pressable>
+        <Image source={require('../assets/sport-shoe.png')}></Image>
       </View>
   );
 }
-
 const styles = StyleSheet.create({
-  listItem: {
-    padding: 15,
-    backgroundColor:"#f7f7f7",
-    margin: 15,
-  },
 title:{
   fontSize:24,
   fontWeight: "bold",
 },
 link:{
   textDecorationLine: "underline",
+  marginVertical:15
 },
 });
 export default ProductItem;
