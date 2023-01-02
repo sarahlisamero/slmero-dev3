@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native'; //nieuw
 
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, Button } from 'react-native';
 
 
 const ProductItem = props => { /*ProductItem*/
@@ -16,14 +16,11 @@ const navigation = useNavigation(); //nieuw
       </View>
   );
 }
+
 const styles = StyleSheet.create({
-title:{
+  title:{
   fontSize:24,
   fontWeight: "bold",
-},
-link:{
-  textDecorationLine: "underline",
-  marginVertical:15
 },
 cover:{
   width:324,
