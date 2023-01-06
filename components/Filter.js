@@ -24,7 +24,9 @@ const Filter = ({data, input, setInput, navigation})=> {
             </Pressable>
          </View>
 
-      <FlatList ListFooterComponent={<View style={{ height: 600 }}></View>} data={data} renderItem={({item})=>{
+      <FlatList ListFooterComponent={<View style={{ height: 450 }}></View>} 
+      data={data} 
+      renderItem={({item})=>{
       
          if(item.title.rendered.toLowerCase().includes(input.toLowerCase())){
             return(
