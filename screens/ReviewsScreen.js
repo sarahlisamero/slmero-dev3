@@ -21,7 +21,7 @@ const Reviews = () => {
         };
     }
     return(
-        <View>
+        <View style={styles.screen}>
             <View style={styles.inputContainer}>
                 <TextInput 
                 placeholder="Schrijf een review"
@@ -42,6 +42,9 @@ const Reviews = () => {
 export default Reviews;
 
 const styles = StyleSheet.create ({
+    screen:{
+        backgroundColor:"#f7f7f7",
+    },
   inputContainer: {
     backgroundColor:"#f7f7f7",
   },
