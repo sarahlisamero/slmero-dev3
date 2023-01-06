@@ -14,26 +14,38 @@ const Filter = ({data, input, setInput, navigation})=> {
     }
  return(
     <View>
-      <Pressable onPress={() => navigation.navigate("Cart")}>
+         <View>
+            <Pressable onPress={() => navigation.navigate("Cart")}>
                <Image style={styles.picture} source={require('../assets/shopping-cart.png')}></Image>
                <Text style={styles.counter} >{pressCounter}</Text>
-           </Pressable>
-        <FlatList data={data} renderItem={({item})=>{
-      
+            </Pressable>
+            <Pressable onPress={() => navigation.navigate("Terms")}>
+               <Text style={styles.buttonText}>TERMS & CONDITIONS</Text>
+            </Pressable>
+         </View>
 
-      if(item.title.rendered.toLowerCase().includes(input.toLowerCase())){
+      <FlatList ListFooterComponent={<View style={{ height: 600 }}></View>} data={data} renderItem={({item})=>{
+      
+         if(item.title.rendered.toLowerCase().includes(input.toLowerCase())){
             return(
                <View style={styles.productContainer}>
-                     <ProductItem
-                        title={item.title.rendered}
-                        image={item.yoast_head_json.og_image[0].url}/>
-                        
-                <Button title="Bekijk Product" onPress={() => navigation.navigate("Details", 
-                {itemTitle: item.title.rendered,
-                itemDesc: item.yoast_head_json.og_description, itemImage: item.yoast_head_json.og_image[0].url } )}/>
 
-                <Button style={styles.button} title="add to cart" onPress={() => pressHandler()}/>
-                </View>
+                  <ProductItem
+                     title={item.title.rendered}
+                     image={item.yoast_head_json.og_image[0].url}/>
+                        
+
+                  <Pressable style={styles.button} onPress={() => navigation.navigate("Details", 
+                     {itemTitle: item.title.rendered,
+                     itemDesc: item.yoast_head_json.og_description, itemImage: item.yoast_head_json.og_image[0].url } )}> 
+                     <Text style={styles.buttonText}> BEKIJK RODUCT</Text>
+                  </Pressable>
+
+                  <Pressable style={styles.button} onPress={() => pressHandler()}> 
+                     <Text style={styles.buttonText}> ADD TO CART </Text>
+                  </Pressable>
+                
+               </View>
             )
            }
          }}>
@@ -54,8 +66,22 @@ const styles = StyleSheet.create({
       padding: 15,
       backgroundColor:"#f7f7f7",
       margin: 15,
+      borderRadius:10,
   },
   counter:{
    marginLeft: "92%"
-}
+},
+button: {
+   borderRadius:20,
+   backgroundColor:"#00008B",
+   paddingVertical: 10,
+   marginVertical: 10,
+   marginHorizontal:20, 
+},
+buttonText:{
+   color: "#f7f7f7",
+   marginLeft: "auto",
+   marginRight: "auto",
+   fontWeight: "bold"
+}, 
 });
