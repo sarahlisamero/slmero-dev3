@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, TextInput, ScrollView} from 'react-native';
+import {StyleSheet, View, TextInput, ScrollView, Text, Pressable} from 'react-native';
 
 import ProductItem from '../components/ProductItem'; 
 import Filter from '../components/Filter'
@@ -40,7 +40,7 @@ const Products = ({navigation}) =>{
     console.log(input);
 
     return (
-        <ScrollView style={styles.screen}>
+        <View style={styles.screen}>
             <View>
                 <TextInput
                     value={input}
@@ -51,33 +51,7 @@ const Products = ({navigation}) =>{
                 <Filter data={products} input={input} setInput={setInput} navigation={navigation}/>
             </View>
 
-            {/*<View>
-                <Pressable onPress={() => navigation.navigate("Cart")}>
-                    <Image style={styles.picture} source={require('../assets/shopping-cart.png')}></Image>
-                    <Text style={styles.counter} >{pressCounter}</Text>
-                </Pressable>
-             </View>*/}
-            {/*
-            <View>
-            <FlatList 
-            ListFooterComponent={<View style={{height:250}}></View>} 
-            data={products} 
-            renderItem={({item}) => (
-                <View style={styles.productContainer}>
-                     <ProductItem
-                        title={item.title.rendered}
-                        image={item.yoast_head_json.og_image[0].url}/>
-                        
-                <Button title="Bekijk Product" onPress={() => navigation.navigate("Details", 
-                {itemTitle: item.title.rendered,
-                itemDesc: item.yoast_head_json.og_description, itemImage: item.yoast_head_json.og_image[0].url } )}/>
-
-                <Button style={styles.button} title="add to cart" onPress={() => pressHandler()}/>
-                </View>
-            )}/>
-            </View>
-                */}
-        </ScrollView>
+        </View>
     )
 }
 export default Products;
@@ -86,16 +60,6 @@ const styles = StyleSheet.create({
     screen: {
         backgroundColor: '#add8e6',
     },
-    picture: {
-        width:40,
-        height:40,
-        marginLeft:"82%",
-    },
-    /*productContainer:{
-        padding: 15,
-        backgroundColor:"#f7f7f7",
-        margin: 15,
-    },*/
     input: {
         backgroundColor:"#f7f7f7",
         color:"#000000",
@@ -104,10 +68,15 @@ const styles = StyleSheet.create({
         paddingTop:10,
         paddingBottom:10,
     },
-    button: {
-        marginVertical:10,
+    button:{
+        backgroundColor:"#FFD580",
+        padding:10,
+        marginVertical: 20,
+        marginHorizontal:70,
+        borderRadius:20
     },
-    counter:{
-        marginLeft: "92%"
+    buttonText:{
+        marginLeft:"auto",
+        marginRight: "auto"
     }
 })
