@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {StyleSheet, View, Image, FlatList} from 'react-native';
+import {StyleSheet, View, Pressable, Text,Image, FlatList} from 'react-native';
 import ProductDetails from '../components/ProductDetails';
 
 const Stack = createNativeStackNavigator();
@@ -13,6 +13,9 @@ const Details = ({navigation, route}) =>{
             description={route.params.itemDesc}
             image={route.params.itemImage}
             />
+            <Pressable onPress={() => navigation.navigate("Reviews")}> 
+                <Text>LEES REVIEWS</Text>
+            </Pressable>
         </View>
     )
 }
