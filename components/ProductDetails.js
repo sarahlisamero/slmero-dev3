@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, Image} from 'react-native';
 
-const ProductDetails = props => { /*ProductItem*/
+const ProductDetails = props => { 
   return (
       <View style={styles.container}>
         <Text style={styles.title}>{props.title}</Text>
-        <Image source={{uri: `${props.image}`}}/> 
+        <Image style={styles.cover} source={{uri: `${props.image}`}}/> 
         <Text>{props.description}</Text>
       </View>
   );
@@ -18,5 +18,10 @@ const styles = StyleSheet.create ({
   },
   container:{
     margin: 20,
+  },
+  cover:{
+    width:345,
+    height:400,
+    marginVertical:20
   }
 })
