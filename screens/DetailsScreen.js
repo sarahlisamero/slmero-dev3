@@ -1,8 +1,5 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {StyleSheet, View, Pressable, Text,Image, FlatList} from 'react-native';
+import {StyleSheet, View, Pressable, Text} from 'react-native';
 import ProductDetails from '../components/ProductDetails';
-
-const Stack = createNativeStackNavigator();
 
 const Details = ({navigation, route}) =>{
 
