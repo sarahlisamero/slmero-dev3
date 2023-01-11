@@ -1,17 +1,11 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, TextInput, ScrollView, Text, Pressable} from 'react-native';
+import {StyleSheet, View, TextInput} from 'react-native';
 
-import ProductItem from '../components/ProductItem'; 
 import Filter from '../components/Filter'
-
-const Stack = createNativeStackNavigator();
 
 const Products = ({navigation}) =>{
 
-    const [products, setProducts] = useState ([]); //variabele maken
+    const [products, setProducts] = useState ([]); //variabele maken - array
 
     const getProducts = async () => {
         try {
@@ -19,24 +13,17 @@ const Products = ({navigation}) =>{
 
             })
             const json = await response.json(); 
-            setProducts(json); //gelukt
+            setProducts(json); //gelukt -> producten ophalen -> weergeven scherm
         } catch (error) {
             console.error(error); //niet gelukt
         }
     }
 
     useEffect(() => {
-        getProducts(); //laadt de producten
+        getProducts(); //laadt de producten op scherm
     }, []);
 
-    const [pressCounter, setPressCounter] = useState(0);
-
-    function pressHandler() {
-        console.log("pressed ");
-        setPressCounter((currentPressCounter) => currentPressCounter +1)
-    }
-
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState(""); //string
     console.log(input);
 
     return (
@@ -48,7 +35,7 @@ const Products = ({navigation}) =>{
                     style={styles.input}
                     onChangeText={(text) => setInput(text)}
                 />
-                <Filter data={products} input={input} setInput={setInput} navigation={navigation}/>
+                <Filter data={products} input={input} setInput={setInput} navigation={navigation} /*filter component & waarden meegeven*//> 
             </View>
 
         </View>
@@ -63,10 +50,12 @@ const styles = StyleSheet.create({
     input: {
         backgroundColor:"#f7f7f7",
         color:"#000000",
-        marginBottom:10,
+        marginVertical:10,
         paddingLeft:10,
         paddingTop:10,
         paddingBottom:10,
+        marginHorizontal:15,
+        borderRadius:10
     },
     button:{
         backgroundColor:"#FFD580",
