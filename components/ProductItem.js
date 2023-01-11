@@ -1,12 +1,7 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native'; //nieuw
-
 import { View, Text, StyleSheet, Image, ScrollView, Button } from 'react-native';
 
-
 const ProductItem = props => { /*ProductItem*/
-const navigation = useNavigation(); //nieuw
+
   return (
       <View>
         <Text style={styles.title}>{props.title}</Text>
