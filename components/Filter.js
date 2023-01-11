@@ -1,11 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet, Image, FlatList, Pressable, Button} from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, StyleSheet, Image, FlatList, Pressable} from 'react-native';
 import ProductItem from '../components/ProductItem'; 
 
-
+//inspiratie youtubevideo: https://www.youtube.com/watch?v=achVk8c_93Y&list=LL&index=1&t=423s
 const Filter = ({data, input, setInput, navigation})=> { 
    const [pressCounter, setPressCounter] = useState(0);
    function pressHandler() {
@@ -40,7 +37,7 @@ const Filter = ({data, input, setInput, navigation})=> {
                   <Pressable style={styles.button} onPress={() => navigation.navigate("Details", 
                      {itemTitle: item.title.rendered,
                      itemDesc: item.yoast_head_json.og_description, itemImage: item.yoast_head_json.og_image[0].url } )}> 
-                     <Text style={styles.buttonText}> BEKIJK RODUCT</Text>
+                     <Text style={styles.buttonText}> BEKIJK PRODUCT</Text>
                   </Pressable>
 
                   <Pressable style={styles.button} onPress={() => pressHandler()}> 
