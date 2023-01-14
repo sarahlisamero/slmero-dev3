@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, Image, ScrollView, Button } from 'react-native';
+import { View, Text, StyleSheet, Image} from 'react-native';
 
-const ProductItem = props => { /*ProductItem*/
+const ProductItem = props => { 
 
   return (
       <View>
