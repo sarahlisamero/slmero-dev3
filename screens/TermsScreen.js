@@ -23,12 +23,12 @@ const Terms = () =>{
                     </Text>
                 </View>
                 <View style={styles.btnContainer}>
-                <TouchableOpacity activeOpacity={0.5} onPress={() => console.log("ok")} style={styles.tile}>
+                <TouchableOpacity activeOpacity={0.5} onPress={() => alert("Top. Dit wordt opgeslagen")} style={styles.tile}>
                     <View>
                         <Text style={styles.textTile}>AKKOORD</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity activeOpacity={0.5} onPress={() => console.log("ok")} style={styles.tile}>
+                <TouchableOpacity activeOpacity={0.5} onPress={() => alert("Bij niet akkoord kan je geen aankopen doen.")} style={styles.tile}>
                     <View>
                         <Text style={styles.textTile}> NIET AKKOORD</Text>
                     </View>
