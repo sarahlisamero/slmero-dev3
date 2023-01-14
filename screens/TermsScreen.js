@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
-
+//nieuw dat nog niet in andere screens voorkomt: scrollview, touchable opacity & alerts
 const Terms = () =>{
 
     return (
