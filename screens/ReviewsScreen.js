@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Button, FlatList} from 'react-native';
+import { StyleSheet, TextInput, View, Button, FlatList, TouchableWithoutFeedback, Text} from 'react-native';
 import Review from '../components/Review'
 
 const Reviews = () => {
@@ -29,9 +29,12 @@ const Reviews = () => {
                 clearButtonMode="always" /*bij ios kruisje*/
                 onChangeText={reviewInputHandler}
                 />
-                <Button style={styles.btn} title="ADD" onPress={addReviewHandler}/>
-
             </View>
+            <TouchableWithoutFeedback onPress={addReviewHandler}>
+                <View style={styles.btn}>
+                    <Text style={styles.btnText}>ADD REVIEW</Text>
+                </View>
+            </TouchableWithoutFeedback>
             <FlatList ListFooterComponent={<View style={{ height: 200 }}></View>} style={styles.flatlist} data={reviews} renderItem={(itemData)=> (
                 <Review reviewInput = {itemData.item} />
             )}/>
@@ -43,13 +46,26 @@ export default Reviews;
 
 const styles = StyleSheet.create ({
   inputContainer: {
-    backgroundColor:"#f7f7f7",
+    backgroundColor:"#ffffff",
     marginHorizontal:20,
     marginVertical:10,
     borderRadius:5,
   },
   input:{
-    paddingBottom:40
+    paddingBottom:70
   },
-
+  btn:{
+    backgroundColor: "#00008B",
+    width: 150,
+    marginLeft:"auto",
+    marginRight:"auto",
+    padding:10,
+    borderRadius:50
+  },
+  btnText:{
+    color:"#f7f7f7",
+    fontWeight:"bold",
+    marginLeft:"auto",
+    marginRight:"auto"
+  }
 })
