@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
- 
+//dit is een test
 const Review = props => {
   return (
     <View style={styles.container}> 
