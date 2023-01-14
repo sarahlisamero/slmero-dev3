@@ -35,6 +35,7 @@ const Products = ({navigation}) =>{
         try {
             if(enteredText.length > 0){
                 const search = encodeURI("https://sarahlisamero.be/index.php/wp-json/wp/v2/posts?categories=9&search=" + enteredText);
+                //getest met postman
                 const response = await fetch(search);
                 const json = await response.json();
                 console.log(json);
