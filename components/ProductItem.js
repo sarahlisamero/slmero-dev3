@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
 cover:{
   width:324,
   height:300,
-  marginVertical:10
+  marginVertical:10,
+  borderRadius: 10
 }
 });
 export default ProductItem;
