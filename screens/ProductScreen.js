@@ -3,8 +3,6 @@ import {StyleSheet, View, TextInput, Pressable, Image, Text, FlatList} from 'rea
 
 import ProductItem from '../components/ProductItem'; 
 
-/*import Filter from '../components/Filter'*/
-
 //producten ophalen uit databank
 const Products = ({navigation}) =>{
 
