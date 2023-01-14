@@ -22,6 +22,7 @@ const styles = StyleSheet.create ({
   cover:{
     width:345,
     height:400,
-    marginVertical:20
+    marginVertical:20,
+    borderRadius:10
   }
 })
