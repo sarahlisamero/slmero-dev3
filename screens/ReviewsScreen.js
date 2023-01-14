@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button, FlatList, TouchableWithoutFeedback, Text} from 'react-native';
 import Review from '../components/Review'
 
+//nieuw dat nog niet op andere schermen voorkomt: spread
+
 const Reviews = () => {
     //voorbeeldoefening todo
     const [enteredReview, setEnteredReview] = useState('');
