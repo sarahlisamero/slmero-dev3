@@ -9,6 +9,7 @@ const Details = ({navigation, route}) =>{
             title={route.params.itemTitle}
             description={route.params.itemDesc}
             image={route.params.itemImage}
+            //pass data between screens
             />
             <Pressable style={styles.btn} onPress={() => navigation.navigate("Reviews")}> 
                 <Text style={styles.btnText}>SCHRIJF REVIEWS</Text>
