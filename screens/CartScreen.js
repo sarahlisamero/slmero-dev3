@@ -1,12 +1,11 @@
-import {Stylesheet, Text, View, Image, TextInput, Pressable, FlatList} from 'react-native';
-
+import {Text, View} from 'react-native';
+//leeg scherm, in het begin gemaakt -> niets verder mee gedaan
 const Cart = () =>{
 
     return (
         <View>
            <Text>
-            winkelkarretje
-            
+            Winkelkarretje  
            </Text>
         </View>
     )
