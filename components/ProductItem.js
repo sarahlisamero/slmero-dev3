@@ -6,7 +6,7 @@ const ProductItem = props => {
       <View>
         <Text style={styles.title}>{props.title}</Text>
         <Image style={styles.cover}
-        source={{ uri: `${props.image}` }}
+        source={{ uri: props.image }}
         />
       </View>
   );
