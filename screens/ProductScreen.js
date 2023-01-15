@@ -10,7 +10,7 @@ const Products = ({navigation}) =>{
 
     const getProducts = async () => {
         try {
-            const response = await fetch ("https://sarahlisamero.be/index.php/wp-json/wp/v2/posts?categories=9", { //enkel posts met deze categorie ophalen
+            const response = await fetch ("https://sarahlisamero.be/wp-json/wp/v2/posts?categories=9", { //enkel posts met deze categorie ophalen
 
             })
             const json = await response.json(); 
@@ -34,7 +34,7 @@ const Products = ({navigation}) =>{
     const getProductByTitle = async (enteredText) => {
         try {
             if(enteredText.length > 0){
-                const search = encodeURI("https://sarahlisamero.be/index.php/wp-json/wp/v2/posts?categories=9&search=" + enteredText);
+                const search = encodeURI("https://sarahlisamero.be/wp-json/wp/v2/posts?categories=9&search=" + enteredText);
                 //getest met postman
                 const response = await fetch(search);
                 const json = await response.json();
